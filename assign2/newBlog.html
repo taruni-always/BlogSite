@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>BlogSite</title>
+        <link rel="stylesheet" href="style.css">
+        <script src="script.js"> </script>
+    </head>
+    <body>
+         <div class='navbar' style="color:white;font-size: 25px;">
+            <p>BLOG SITE</p>
+        </div>
+        <hr>
+        <div class="navbar">
+            <a href="home.html">Home</a>
+            <a href="#">Profile</a>
+            <a href="#">Login</a>
+            <a href="#">Myblogs</a>
+            <a class = "active" href="#">Add Blog</a>
+            <a href="about.html">About</a>
+        </div><br><br><br>
+        <form id="newblogform">
+            
+            <label for="fname"> TITLE :</label>
+            <input type="text" id="fname" name="bname" placeholder="enter the blog name here"><br><br><br>
+           
+            <label for="content">CONTENT :</label>
+            <textarea id ="content" name="body" form="newblogform" placeholder="enter the body of blog here"></textarea><br><br><br>
+            <input class="button button1" type="button" value="Add Blog" name="submitb">
+        </form>
+    </body>
+</html>
