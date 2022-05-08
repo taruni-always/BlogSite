@@ -16,7 +16,6 @@ window.addEventListener('DOMContentLoaded', function () {
         for (const key of Object.keys(blogs)) {
             const divTag = document.createElement("div");
             divTag.className = "blog";
-
             const img1 = document.createElement("img");
             img1.src = images[index];
             index ++;
