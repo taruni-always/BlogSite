@@ -3,35 +3,63 @@
 <head>
     <title>BlogSite</title>
     <link rel="icon" href="logo.jpeg">
-    <link rel="stylesheet" href="style.css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no"> 
+    <link rel="stylesheet" href="bootstrap-4.4.1-dist/css/bootstrap.min.css"> 
+    <script src="bootstrap-4.4.1-dist/js/jquery.min.js" ></script>
+    <script src="bootstrap-4.4.1-dist/js/popper.min.js" ></script>	
+    <script src="bootstrap-4.4.1-dist/js/bootstrap.min.js"></script> 
     <script src="script.js"></script>
+    <link rel="stylesheet" href="style.css"> 
 </head>
 <body >
-    <div class='navbar' style="color:white;font-size:25px;">
-        <p>BLOG SITE</p>
-    </div>
-    <hr>
-    <div class="navbar">
-        <a  href="home.html">Home</a>
-        <a href="#news">Profile</a>
-        <a href="#contact">Login</a>
-        <a href="#about">Myblogs</a>
-        <a href="newBlog.html">Add Blog</a>
-        <a class = "active" href="about.html">About</a>
-    </div>
-    <div class="card">
-        <img src="shruthi.jpeg" alt="shruthi" >
-        <h2>Katepalli Shruthi</h2>
-        <p class="title">1602-19-737-105</p>
-        <p>VCE, IT-B</p>
-        <a href="https://github.com/kshruthi1502"><img src="github.png" alt="github"></a>
-    </div>
-    <div class="card">
-        <img src="propic2.jpg" alt="taruni">
-        <h2>N Taruni</h2>
-        <p class="title">1602-19-737-120</p>
-        <p>VCE, IT-B</p>
-        <a href="https://github.com/taruni-always"><img src="github.png" alt="github"></a>
+    <div class="container mt-3">
+        <div id="heading">
+            BLOG SITE
+        </div>
+        <ul class="nav nav-tabs">
+            <li class="nav-item">
+            <a class="nav-link " href="home.html">Home</a>
+            </li>
+            <li class="nav-item">
+            <a class="nav-link" active href="about.html">About</a>
+            </li>
+            <li class="nav-item">
+            <a class="nav-link" href="#">Profile</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Login</a>
+            </li>
+            <li class="nav-item">
+                <div class="dropdown">
+                    <button type="button" class="btn dropdown-toggle" data-toggle="dropdown">
+                    Blogs
+                    </button>
+                    <div class="dropdown-menu">
+                    <a class="dropdown-item" href="#">My Blogs</a>
+                    <a class="dropdown-item" href="newBlog.html">Add New Blog</a>
+                    </div>
+                </div>
+            </li>
+        </ul>   
+    </div> 
+    <div class="container mt-2">
+        <div class="card" style="width: 18rem;">  <!-- 1 rem = 16px-->
+            <img src="shruthi.jpeg" class="card-img-top" alt="..." height="120" width="18">
+            <div class="card-body">
+              <h5 class="card-title">Katepalli Shruthi</h5>
+              <p class="card-text">1602-19-737-105<br>VCE, IT-B</p>
+              <a href="https://github.com/kshruthi1502" class="btn btn-primary">GitHub</a>
+            </div>
+        </div>
+        <div class="card" style="width: 18rem;">  <!-- 1 rem = 16px-->
+            <img src="propic2.jpg" class="card-img-top" alt="..." height="120" width="18">
+            <div class="card-body">
+              <h5 class="card-title">N Taruni</h5>
+              <p class="card-text">1602-19-737-120<br>VCE, IT-B</p>
+              <a href="https://github.com/taruni-always" class="btn btn-primary">GitHub</a>
+            </div>
+        </div>
     </div>
 </body>
 
