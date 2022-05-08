@@ -1,31 +1,76 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <title>BlogSite</title>
-        <link rel="stylesheet" href="style.css">
-        <script src="script.js"> </script>
-    </head>
-    <body>
-         <div class='navbar' style="color:white;font-size: 25px;">
-            <p>BLOG SITE</p>
+
+<head>
+    <title>BlogSite</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <link rel="stylesheet" href="bootstrap-4.4.1-dist/css/bootstrap.min.css">
+    <script src="bootstrap-4.4.1-dist/js/jquery.min.js"></script>
+    <script src="bootstrap-4.4.1-dist/js/popper.min.js"></script>
+    <script src="bootstrap-4.4.1-dist/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"> </script>
+</head>
+
+<body>
+    <div class="container mt-3">
+        <div id="heading">
+            BLOG SITE
         </div>
-        <hr>
-        <div class="navbar">
-            <a href="home.html">Home</a>
-            <a href="#">Profile</a>
-            <a href="#">Login</a>
-            <a href="#">Myblogs</a>
-            <a class = "active" href="#">Add Blog</a>
-            <a href="about.html">About</a>
-        </div><br><br><br>
-        <form id="newblogform">
-            
-            <label for="fname"> TITLE :</label>
-            <input type="text" id="fname" name="bname" placeholder="enter the blog name here"><br><br><br>
-           
-            <label for="content">CONTENT :</label>
-            <textarea id ="content" name="body" form="newblogform" placeholder="enter the body of blog here"></textarea><br><br><br>
-            <input class="button button1" type="button" value="Add Blog" name="submitb">
-        </form>
-    </body>
-</html>
+        <ul class="nav nav-tabs">
+            <li class="nav-item">
+                <a class="nav-link " href="home.html">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" active href="about.html">About</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Profile</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Login</a>
+            </li>
+            <li class="nav-item">
+                <div class="dropdown">
+                    <button type="button" class="btn dropdown-toggle" data-toggle="dropdown">
+                        Blogs
+                    </button>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="#">My Blogs</a>
+                        <a class="dropdown-item" href="newBlog.html">Add New Blog</a>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <!-- <form id="newblogform">
+
+        <label for="fname"> TITLE :</label>
+        <input type="text" id="fname" name="bname" placeholder="enter the blog name here"><br><br><br>
+
+         <label for="content">CONTENT :</label>
+        <textarea id="content" name="body" form="newblogform" placeholder="enter the body of blog here"></textarea><br><br><br>
+        <input class="button button1" type="button" value="Add Blog" name="submitb">
+        <div class="form-group">
+            <label for="exampleFormControlTextarea1">Example textarea</label>
+            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+             <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+    </form>-->
+    <br><br><br>
+    <div class="container">
+        <div class="form-group">
+            <label for="title">TITLE</label>
+            <input type="text" class="form-control" id="title" placeholder="enter title">
+
+        </div>
+        <div class="form-group">
+            <label for="content">CONTENT</label>
+            <textarea class="form-control" id="content" rows="3"></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
+
+</body></html>
