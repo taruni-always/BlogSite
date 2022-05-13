@@ -10,10 +10,22 @@
     <script src="bootstrap-4.4.1-dist/js/popper.min.js"></script>
     <script src="bootstrap-4.4.1-dist/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="style.css">
-    <script src="script.js"> </script>
+    <script src="lib/angular.min.js"></script>
+    <script>
+        var myapp = angular.module('SampleBinding', []);
+        myapp.controller('MyController', function($scope) {
+            $scope.blog = {} //define customer as JSON object
+        });
+
+        function loadFile(event) {
+            var image = document.getElementById('output');
+            image.src = URL.createObjectURL(event.target.files[0]);
+        }
+
+    </script>
 </head>
 
-<body>
+<body ng-app="SampleBinding">
     <div class="container mt-3">
         <div id="heading">
             BLOG SITE
@@ -45,18 +57,66 @@
         </ul>
     </div>
     <br><br><br>
-    <div class="container">
-        <div class="form-group">
-            <label for="title">TITLE</label>
-            <input type="text" class="form-control" id="title" placeholder="enter title">
+    <div class="container" ng-controller="MyController">
+        <form name="myform">
 
-        </div>
-        <div class="form-group">
-            <label for="content">CONTENT</label>
-            <textarea class="form-control" id="content" rows="3"></textarea>
+            <div class="form-group">
+                <label for="title">TITLE</label>
+                <input type="text" name="Title" class="form-control" id="title" placeholder="enter title" ng-model="blog.title" required>
+
+            </div>
+            <div class="form-group">
+                <label for="content">CONTENT</label>
+                <textarea class="form-control" id="content" rows="3" ng-model="blog.content" name="Content" required></textarea>
+            </div>
+                
+               
+               
+
+           
+        </form>
+        <button type="submit" class="btn btn-primary" ng-disabled="myform.$invalid">Submit</button>
+        <br><br>
+        <input class="btn btn-primary " type="file" name="image" id="file" onchange="loadFile(event)"  value="Choose File">
+        <div ng-show="myform.Title.$touched && myform.$valid">
+            PREVIEW
         </div>
 
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <!--
+        <div class="card-body bg-light mb-3" ng-show="myform.Title.$touched && myform.$valid">
+
+            <h3 class="card-title"> {{ blog.title }} </h3>
+            <div class="card-text">
+                {{ blog.content.split('.')[0] }}
+            </div>
+            <input class="btn btn-primary" type="button" data-toggle="collapse" data-target="#blogcon" value="Read More">
+            <div id="blogcon" class="collapse">
+                {{blog.content}}
+            </div>
+        </div>
+-->
+        <div class="card-body bg-light mb-3" ng-show="myform.Title.$touched && myform.$valid">
+
+            <h3 class="card-title  " style="margin-right: 20%;"> {{ blog.title }} </h3>
+
+            <div class="row">
+                <div class="col-4">
+                    <img id="output" style="width:100%">
+                </div>
+                <div class="col">
+                    <div class="card-text" style="text-align: left;">
+                        {{ blog.content.split('.')[0] }}
+                    </div>
+                </div>
+            </div>
+            <br>
+            <input class="btn btn-primary" type="button" data-toggle="collapse" data-target="#blogcon" value="Read More">
+            <div id="blogcon" class="collapse ">
+                {{blog.content}}
+            </div>
+        </div>
     </div>
 
-</body></html>
+</body>
+
+</html>

@@ -10,6 +10,11 @@ var images = ["blog1.jfif",
             "blog3.jfif",
             "blog4.jfif"];
 
+var myapp = angular.module('SampleBinding',[]);
+myapp.controller('MyController', function($scope) {
+	$scope.blog = {} //define customer as JSON object
+});
+
 window.addEventListener('DOMContentLoaded', function () {
     if (document.getElementsByClassName("navbar")[1].children[0].className == "active") {
         var index = 0;
