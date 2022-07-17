@@ -1,0 +1,19 @@
+.nav-link {
+    color:black;
+}
+#heading {
+    text-align: center;
+    font-weight: bold;
+    font-size: xx-large;
+}
+.blog > img {
+    height: 200px;
+    width: 200px;
+    float: left;
+}
+.card {
+  flex-direction: row;
+}
+.card img {
+  width: 100%;
+}

@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-
+<%@ page import = "java.sql.*"%>
 <head>
     <title>BlogSite</title>
     <link rel="icon" href="logo.jpeg">
@@ -17,6 +17,7 @@
 </head>
 
 <body>
+    
     <div class="container mt-3">
         <div id="heading">
             BLOG SITE
@@ -29,21 +30,7 @@
                 <a class="nav-link" href="about.html">About</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Profile</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Login</a>
-            </li>
-            <li class="nav-item">
-                <div class="dropdown">
-                    <button type="button" class="btn dropdown-toggle" data-toggle="dropdown">
-                        Blogs
-                    </button>
-                    <div class="dropdown-menu">
-                        <a class="dropdown-item" href="#">My Blogs</a>
-                        <a class="dropdown-item" href="newBlog.html">Add New Blog</a>
-                    </div>
-                </div>
+                <a class="nav-link" href="newBlog.html">Add New Blog</a>    
             </li>
         </ul>
     </div>
@@ -82,28 +69,45 @@
         </a>
     </div>
     <div ng-app="myApp" class="container mt-3" ng-controller="myCtrl">
-        <div class="card" ng-repeat="blog in blogs">
-            <div class="card-body">
-
-                <h3 class="card-title" style="margin-right: 20%;"> {{ blog.title }} </h3>
-
-                <div class="row">
-                    <div class="col-4">
-                        <img src={{blog.image}}>
-                    </div>
-                    <div class="col">
-                        <div class="card-text" style="text-align: left;" ng-hide="myvar">
-                            {{ blog.body.split('.')[0] }}
+        
+        <%
+	String title = request.getParameter("title");
+	String body = request.getParameter("body");
+	String image = request.getParameter("image");
+    try
+	{
+		Class.forName("oracle.jdbc.driver.OracleDriver"); 
+		Connection con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe", "it19737120", "gpjp2000");
+	    
+       
+		Statement stmt = con.createStatement();  
+		ResultSet rs = stmt.executeQuery("select * from blogs");
+		while (rs.next()){
+	       %>
+            <div class="card">
+                <div class="card-body">
+                    <h3 class="card-title" style="margin-right: 20%;"> <%=rs.getString(1)%> </h3>
+                    <div class="row">
+                        <div class="col-4">
+                            <img src=<%=rs.getString(3)%>>
+                        </div>
+                        <div class="col">
+                            <div class="card-text" style="text-align: left;" ng-hide="myvar">
+                                <%=rs.getString(2)%>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <br>
-                <input class="btn btn-primary" type="button" data-toggle="collapse" data-target="#{{blog.id}}" value="Read More" ng-model="myvar">
-                <div id="{{blog.id}}" name="fullBlog" class="collapse ">
-                    <span ng-repeat="line in blog.body.split('.')">{{line}}</span>{{blog.body}}
+                    <br>
                 </div>
             </div>
-        </div>
+            <br>
+        <% }
+            }
+            catch(Exception e)
+            {
+                out.print(e);
+            }
+        %>
     </div>
 </body>
 

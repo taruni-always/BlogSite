@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>BlogSite</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <link rel="stylesheet" href="bootstrap-4.4.1-dist/css/bootstrap.min.css">
+    <script src="bootstrap-4.4.1-dist/js/jquery.min.js"></script>
+    <script src="bootstrap-4.4.1-dist/js/popper.min.js"></script>
+    <script src="bootstrap-4.4.1-dist/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <script src="lib/angular.min.js"></script>
+    <script>
+        var myapp = angular.module('SampleBinding', []);
+        myapp.controller('MyController', function($scope) {
+            $scope.blog = {} //define customer as JSON object
+        });
+
+
+    </script>
+</head>
+
+<body ng-app="SampleBinding">
+    <div class="container mt-3">
+        <div id="heading">
+            BLOG SITE
+        </div>
+        <ul class="nav nav-tabs">
+            <li class="nav-item">
+                <a class="nav-link " href="index.jsp">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="about.html">About</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link active" href="newBlog.html">Add New Blog</a>    
+            </li>
+        </ul>
+    </div>
+    <br><br><br>
+    <div class="container" ng-controller="MyController">
+        <form name="myform" method="get" action="blogAdded.jsp">
+
+            <div class="form-group">
+                <label for="title">TITLE</label>
+                <input type="text" name="title" class="form-control" id="title" placeholder="enter title" ng-model="blog.title" required>
+            </div>
+            <div class="form-group">
+                <label for="content">CONTENT</label>
+                <textarea class="form-control" id="content" rows="3" ng-model="blog.content" name="body" required></textarea>
+            </div>
+            <div class="form-group">
+                <label for="image">IMAGE</label>
+                <input class="text" type="text" required name="image" id="image" >
+            </div>
+            <input type="submit" class="btn btn-primary" ng-disabled="myform.$invalid" value="add blog">
+        </form>
+    </div>
+
+</body>
+
+</html>
